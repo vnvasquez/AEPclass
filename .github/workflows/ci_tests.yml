@@ -27,4 +27,4 @@ jobs:
       - name: Install AEPclass
         run: |
           julia --project=test -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()'
-          julia --project=test -e 'include("\test/runtests.jl"\)'
+          julia --project=test -e test/runtests.jl
