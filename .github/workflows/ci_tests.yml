@@ -25,6 +25,8 @@ jobs:
       - uses: actions/checkout@v1
       - uses: julia-actions/julia-buildpkg@latest
       - name: Install AEPclass
+        env:
+          BUILD_NUMBER: ${{ matrix.test_build }}
         run: |
           julia --project=test -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()'
-          julia --project=test test/runtests.jl
+          julia --project=test test/runtests_"$BUILD_NUMBER".jl

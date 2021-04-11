@@ -1,4 +1,4 @@
 using AEPclass
 using Test
 
-include("basic_tests.jl")
+include("foo_tests.jl")
