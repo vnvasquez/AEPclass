@@ -18,7 +18,7 @@ end
 abstract type Reaction end
 
 ```
-    Subtype `phase1effectAR` data for `AEPclass` project.
+    Subtype `Phase1EffectAR` data for `AEPclass` project.
 ```
 mutable struct Phase1EffectAR <: Reaction
     a::Float64
@@ -26,14 +26,14 @@ mutable struct Phase1EffectAR <: Reaction
 end
 
 ```
-    Function `phase1effectAR`
+    Function `Phase1EffectAR`
 ```
 function get_reaction(t::Float64, reaction::Phase1EffectAR, ::Float64)
     return reaction.a * exp(reaction.b * t)
 end
 
 ```
-    Subtype `phase1effectBR` data
+    Subtype `Phase1EffectBR` data
 ```
 mutable struct Phase1EffectBR <: Reaction
     a::Float64
@@ -45,7 +45,7 @@ mutable struct Phase1EffectBR <: Reaction
 end
 
 ```
-    Function `phase1effectBR`
+    Function `Phase1EffectBR`
 ```
 function get_reaction(t::Float64, reaction::Phase1EffectBR, ::Float64)
     return 1 / (reaction.a*(t + reaction.b) *
@@ -55,12 +55,17 @@ end
 
 
 ```
-    Subtype `phase2effectAR` data
+    Subtype `Phase2EffectAR` data
 ```
-
-
+mutable struct Phase2EffectAR <: Reaction
+    a::Float64
+    b::Float64
+end
 
 
 ```
-    Function `phase2effectAR`
+    Function `Phase2EffectAR`
 ```
+function get_reaction(t::Float64, reaction::Phase2EffectAR, ::Float64)
+    return reaction.a * exp(reaction.b * t^2)
+end

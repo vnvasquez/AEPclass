@@ -10,4 +10,6 @@ export get_reaction
 export Phase1EffectAR
 export Phase1EffectBR
 
+export Phase2EffectAR
+
 end
