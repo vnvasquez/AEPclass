@@ -44,3 +44,6 @@ jobs:
       - name: Run Build 6
         run: |
           julia --project=test test/runtests_6.jl
+      - name: Run Build 7
+        run: |
+          julia --project=test test/runtests_7.jl
