@@ -18,6 +18,13 @@ end
 abstract type Reaction end
 
 ```
+    Method to account for flexibile third argument.
+```
+function get_reaction(t::Float64, reaction::Reaction)
+    return get_reaction(t::Float64, reaction::Reaction, 0.0)
+end
+
+```
     Subtype `Phase1EffectAR` data for `AEPclass` project.
 ```
 mutable struct Phase1EffectAR <: Reaction
@@ -53,7 +60,6 @@ function get_reaction(t::Float64, reaction::Phase1EffectBR, ::Float64)
         1+exp(reaction.e - (reaction.f /(t + reaction.b)))))
 end
 
-
 ```
     Subtype `Phase2EffectAR` data
 ```
@@ -61,7 +67,6 @@ mutable struct Phase2EffectAR <: Reaction
     a::Float64
     b::Float64
 end
-
 
 ```
     Function `Phase2EffectAR`
