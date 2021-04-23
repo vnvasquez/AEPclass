@@ -11,5 +11,6 @@ export Phase1EffectAR
 export Phase1EffectBR
 
 export Phase2EffectAR
+export Phase2EffectBR
 
 end

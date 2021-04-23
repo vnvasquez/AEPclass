@@ -74,3 +74,22 @@ end
 function get_reaction(t::Float64, reaction::Phase2EffectAR, ::Float64)
     return reaction.a * exp(reaction.b * t^2)
 end
+
+```
+    Subtype `Phase2EffectBR` data
+```
+mutable struct Phase2EffectBR <: Reaction
+    a::Float64
+    b::Float64
+    c::Float64
+    d::Float64
+end
+
+
+```
+    Function `Phase2EffectBR`
+```
+function get_reaction(t::Float64, reaction::Phase2EffectBR, ::Float64)
+    return 1 / (reaction.a *(t + reaction.b) *
+        exp(reaction.c - (reaction.d / (t + reaction.b))))
+end
