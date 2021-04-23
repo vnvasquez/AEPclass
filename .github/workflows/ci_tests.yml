@@ -50,3 +50,6 @@ jobs:
       - name: Run Build 8
         run: |
           julia --project=test test/runtests_8.jl
+      - name: Run Build 9
+        run: |
+          julia --project=test test/runtests_9.jl
