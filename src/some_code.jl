@@ -144,3 +144,48 @@ function get_reaction(t::Float64, reaction::Phase4EffectAR, ::Float64)
     return reaction.a * exp( -reaction.b *
         (t - reaction.c)^2) + reaction.d * (t - reaction.c)^2
 end
+
+```
+    Subtype `Phase1EffectBM` data
+```
+mutable struct Phase1EffectBM <: Reaction
+    a::Float64
+    b::Float64
+    c::Float64
+end
+
+
+```
+    Function `Phase1EffectBM`
+```
+function get_reaction(t::Float64, reaction::Phase1EffectBM, ::Float64)
+    return 1/(reaction.a - (reaction.b * t) + reaction.c * t^2)
+end
+
+
+```
+    Subtype `Phase1EffectAM` data
+```
+mutable struct Phase1EffectAM <: Reaction
+    a::Float64
+    b::Float64
+    c::Float64
+    d::Float64
+    e::Float64
+end
+
+
+```
+    Function `Phase1EffectAM`
+```
+function get_reaction(t::Float64, reaction::Phase1EffectAM, phase1effectBM::Float64)
+    z = 0.0
+    if t > reaction.a || t < reaction.b
+        z = 0.0
+    elseif t > reaction.a && t <= reaction.a
+        z = -t * reaction.c + reaction.d
+    else
+        z = reaction.e * t * (t - reaction.b) * ((reaction.a - t)^0.5)
+    end
+    return (1 - z) / (1/phase1effectBM)
+end
