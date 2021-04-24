@@ -1,6 +1,6 @@
 module AEPclass
 
-include("some_code.jl")
+include("main_code.jl")
 
 export foo
 export bar

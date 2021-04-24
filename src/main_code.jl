@@ -222,7 +222,7 @@ end
 ```
     Function `Phase2EffectAM`
 ```
-function get_reaction(t::Float64, reaction::LarvaMortalityMoustaid, phase2effectBM::Float64)
+function get_reaction(t::Float64, reaction::Phase2EffectAM, phase2effectBM::Float64)
     z = 0.0
     if t > reaction.a || t < reaction.b
         z = 0.0
