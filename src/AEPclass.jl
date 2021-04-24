@@ -19,4 +19,7 @@ export Phase4EffectAR
 export Phase1EffectBM
 export Phase1EffectAM
 
+export Phase2EffectBM
+export Phase2EffectAM
+
 end

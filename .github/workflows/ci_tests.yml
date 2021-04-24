@@ -59,3 +59,9 @@ jobs:
       - name: Run Build 11
         run: |
           julia --project=test test/runtests_11.jl
+      - name: Run Build 12
+        run: |
+          julia --project=test test/runtests_12.jl
+      - name: Run Build 13
+        run: |
+          julia --project=test test/runtests_13.jl

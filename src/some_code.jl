@@ -189,3 +189,47 @@ function get_reaction(t::Float64, reaction::Phase1EffectAM, phase1effectBM::Floa
     end
     return (1 - z) / (1/phase1effectBM)
 end
+
+
+```
+    Subtype `Phase2EffectBM` data
+```
+mutable struct Phase2EffectBM <: Reaction
+    a::Float64
+    b::Float64
+    c::Float64
+end
+
+```
+    Function `Phase2EffectBM`
+```
+function get_reaction(t::Float64, reaction::Phase2EffectBM, ::Float64)
+    return 1 / (reaction.a - (reaction.b * t) + reaction.c * t^2)
+end
+
+
+```
+    Subtype `Phase2EffectAM` data
+```
+mutable struct Phase2EffectAM <: Reaction
+    a::Float64
+    b::Float64
+    c::Float64
+    d::Float64
+    e::Float64
+end
+
+```
+    Function `Phase2EffectAM`
+```
+function get_reaction(t::Float64, reaction::LarvaMortalityMoustaid, phase2effectBM::Float64)
+    z = 0.0
+    if t > reaction.a || t < reaction.b
+        z = 0.0
+    elseif t > reaction.a && t <= reaction.a
+        z = -t * reaction.c + reaction.d
+    else
+        z = reaction.e * t * (t - reaction.b) * ((reaction.a - t)^0.5)
+    end
+    return (1 - z) / (1/phase2effectBM)
+end
